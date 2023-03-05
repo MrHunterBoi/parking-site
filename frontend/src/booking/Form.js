@@ -4,12 +4,14 @@ import classes from "./Form.module.css";
 function Form() {
   const dummy_data = [
     {
-      location: 'вул. Наукова 26',
+      location: 'пл. Підкови 1',
+      lat: 49.841370949898156,
+      lng: 24.029113667068632,
       places: [
         {
           number: 1,
           expiresBooking: "2023-03-07",
-          bookedBy: ''
+          bookedBy: 'Амеба'
         },
         {
           number: 2,
@@ -44,7 +46,9 @@ function Form() {
       ]
     },
     {
-      location: 'вул. І. Франка 22',
+      location: 'пл. Міцкевича 10',
+      lat: 49.83970487778201,
+      lng: 24.030183319441157,
       places: [
         {
           number: 1,
@@ -74,7 +78,9 @@ function Form() {
       ]
     },
     {
-      location: 'пр. Шевченка 42',
+      location: 'вул. Володимира Короленка 9',
+      lat: 49.84103092327188, 
+      lng: 24.039713709239074,
       places: [
         {
           number: 1,
@@ -103,7 +109,7 @@ function Form() {
   const [optionIndex, setOptionIndex] = useState(0);
   const [radioId, setRadioId] = useState();
 
-  const handleChangeIndex = (e) => {
+  const handleChangeIndex = e => {
     setOptionIndex(e.target.value);
     document.getElementById(radioId).checked = false;
   }
@@ -116,10 +122,21 @@ function Form() {
     return new Date().getTime() - new Date(date).getTime() <= 0;
   }
 
+  const handleBookingDuration = e => {
+    const val = parseInt(e.target.value);
+    const max = parseInt(e.target.max);
+    const min = parseInt(e.target.min);
+    
+    if (val > max) e.target.value = max;
+    if (val < min) e.target.value = min;
+  }
+
   return (
-    <form className={`form-check ${classes.form}`}>
-      <label htmlFor={"name"} key={"nameLabel"}>Ваше ім'я та прізвище</label>
-      <input type={"text"} id={"name"} key={"name"} className={"form-check-input"} required/>
+    <form className={`${classes.form}`}>
+      <div className={"input-group mb-3"}>
+        <label className={"input-group-text"} htmlFor={"name"} key={"nameLabel"}>Ваші ініціали</label>
+        <input type={"text"} id={"name"} key={"name"} className={"form-control"} required/>
+      </div>
       <select className="form-select" onChange={handleChangeIndex} key={"select"}>
         {dummy_data.map((item, index) =>
           <option value={index} key={`option${index}`}>{item.location}</option>
@@ -137,7 +154,11 @@ function Form() {
           </div>
         )}
       </div>
-      <input type={"number"} id={"hours"} key={"hours"} className={"form-check-input"} required/>
+      <div className={"input-group mb-3"}>
+        <label className={"input-group-text"} htmlFor={"hours"} key={"hoursLabel"}>Тривалість бронювання<br/> (1 - 120 год)</label>
+        <input onChange={handleBookingDuration} min={1} max={120} type={"number"} id={"hours"} key={"hours"} className={"form-control"} required/>
+      </div>
+      <button type="submit" className={`btn-outline px-4 py-3 rounded-4 ${classes.btnOrange} ${classes.submit}`}>Забронювати!</button>
     </form>
   )
 }

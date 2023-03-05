@@ -1,0 +1,23 @@
+.main {
+    margin: 5vh 0;
+    text-align: center;
+}
+
+.main h1 {
+    margin: 7vh 0;
+}
+
+.booking {
+    display: flex;
+    padding: 0 0 200px;
+}
+
+.booking form {
+    min-width: 50%;
+}
+
+
+.booking h2 {
+    min-width: 50%;
+}
+
