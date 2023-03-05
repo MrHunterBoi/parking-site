@@ -1,45 +1,130 @@
 import Form from "./Form";
+import Map from "./Map"
 import classes from "./Booking.module.css"
-import {GoogleMap, MarkerF, useLoadScript} from "@react-google-maps/api";
+import {useState, createContext} from "react";
 
-function Booking () {
-  const center = {
-    lat: 49.841240462918584,
-    lng: 24.02536064237039,
-  }
+const dummy_data = [
+    {
+      location: 'пл. Підкови 1',
+      lat: 49.841370949898156,
+      lng: 24.029113667068632,
+      places: [
+        {
+          number: 1,
+          expiresBooking: "2023-03-07",
+          bookedBy: 'Амеба'
+        },
+        {
+          number: 2,
+          expiresBooking: 0,
+          bookedBy: ''
+        },
+        {
+          number: 3,
+          expiresBooking: 0,
+          bookedBy: ''
+        },
+        {
+          number: 4,
+          expiresBooking: 0,
+          bookedBy: ''
+        },
+        {
+          number: 5,
+          expiresBooking: 0,
+          bookedBy: ''
+        },
+        {
+          number: 6,
+          expiresBooking: 0,
+          bookedBy: ''
+        },
+        {
+          number: 7,
+          expiresBooking: 0,
+          bookedBy: ''
+        },
+      ]
+    },
+    {
+      location: 'пл. Міцкевича 10',
+      lat: 49.83970487778201,
+      lng: 24.030183319441157,
+      places: [
+        {
+          number: 1,
+          expiresBooking: 0,
+          bookedBy: ''
+        },
+        {
+          number: 2,
+          expiresBooking: 0,
+          bookedBy: ''
+        },
+        {
+          number: 3,
+          expiresBooking: 0,
+          bookedBy: ''
+        },
+        {
+          number: 4,
+          expiresBooking: 0,
+          bookedBy: ''
+        },
+        {
+          number: 5,
+          expiresBooking: 0,
+          bookedBy: ''
+        },
+      ]
+    },
+    {
+      location: 'вул. Володимира Короленка 9',
+      lat: 49.84103092327188,
+      lng: 24.039713709239074,
+      places: [
+        {
+          number: 1,
+          expiresBooking: 0,
+          bookedBy: ''
+        },
+        {
+          number: 2,
+          expiresBooking: 0,
+          bookedBy: ''
+        },
+        {
+          number: 3,
+          expiresBooking: 0,
+          bookedBy: ''
+        },
+        {
+          number: 4,
+          expiresBooking: 0,
+          bookedBy: ''
+        },
+      ]
+    },
+  ]
 
-  const mapContainerStyle = {   
-    width: '45vw',
-    height: '60vh',
-  }
+let contextDb = createContext();
 
-  const{isLoaded, loadError} = useLoadScript({
-    googleMapsApiKey: 'AIzaSyAPw96EZ38DjIrH96aWV6Im9HBQ-bN8FuM',
-  });
+function Booking() {
+  const [dbData, setDbData] = useState(dummy_data)
 
-  if (loadError) return "Помилка завантаження карти!";
 
   return (
     <main className={classes.main}>
       <h1>Бронювання паркувального місця</h1>
-      <div className={classes.booking}>
-        <Form />
-        {!isLoaded 
-        ? <p>Завантажуємо карту...</p> 
-        : <GoogleMap
-            mapContainerStyle={mapContainerStyle}
-            zoom={13}
-            center={center}
-          >
-            <MarkerF
-              position={center} 
-            />
-          </GoogleMap>
-        }
-      
-      </div>
+      <contextDb.Provider value={dbData}>
+        <div className={classes.booking}>
+          <Form/>
+          <Map />
+        </div>
+      </contextDb.Provider>
     </main>
   )
 }
 
+export {contextDb}
 export default Booking;
