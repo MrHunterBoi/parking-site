@@ -1,0 +1,21 @@
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 1vh;
+    margin-top: 100vh;
+    border-top: 4px solid #3d3d3d;
+}
+
+.links {
+    display: flex;
+    gap: 1vw;
+}
+
+.links a img {
+    width: 70%;
+}

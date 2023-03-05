@@ -1,0 +1,51 @@
+:root {
+    --btn-color: #e79919;
+}
+
+.header {
+    padding: 2vh 3vw;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 4px solid #3d3d3d;
+}
+
+.linkLogo {
+    max-width: 7vh;
+    display: inline-block;
+}
+
+.logo {
+    max-width: 100%;
+}
+
+.nav {
+    width: 30%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 10%;
+}
+
+.link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition-duration: .2s;
+    text-align: center;
+}
+
+.company {
+    display: flex;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.btnOrange {
+    color: var(--btn-color);
+    border: 2px solid var(--btn-color);
+}
+
+.btnOrange:hover {
+    color: white;
+    background-color: var(--btn-color);
+}
