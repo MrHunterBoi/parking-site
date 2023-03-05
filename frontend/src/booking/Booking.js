@@ -110,13 +110,19 @@ const dummy_data = [
 let contextDb = createContext();
 
 function Booking() {
-  const [dbData, setDbData] = useState(dummy_data)
+  const [dbData, setDbData] = useState(dummy_data);
 
+  const [center, setCenter] = useState({
+    lat: 49.840240462918584,
+    lng: 24.03336064237039,
+  }, []);
+
+  const [optionIndex, setOptionIndex] = useState(0, []);
 
   return (
     <main className={classes.main}>
       <h1>Бронювання паркувального місця</h1>
-      <contextDb.Provider value={dbData}>
+      <contextDb.Provider value={{dbData, center, setCenter, optionIndex, setOptionIndex}}>
         <div className={classes.booking}>
           <Form/>
           <Map />
