@@ -1,16 +1,16 @@
 import {useState, useContext, useEffect} from "react";
 import {contextDb} from "./Booking"
 import classes from "./Form.module.css";
+import {updateDb} from "../apis/API";
 
 function Form() {
-  const context = useContext(contextDb)
+  const context = useContext(contextDb);
 
   useEffect(() => {
     context.setCenter({
       lat: context.dbData[context.optionIndex].lat,
       lng: context.dbData[context.optionIndex].lng
     })
-    console.log(context.optionIndex)
   }, [context.optionIndex])
 
   const [radioId, setRadioId] = useState();
@@ -37,13 +37,41 @@ function Form() {
     if (val < min) e.target.value = min;
   }
 
+  const handleSubmit = e => {
+    e.preventDefault();
+
+    let checked;
+    for (const s of e.target.slot) {
+      if (s.checked) {
+        checked = s;
+        break;
+      }
+    }
+
+    const data = {
+      name: e.target.name.value,
+      location: e.target.street.options[e.target.street.selectedIndex].text,
+      slot: checked.id,
+      duration: e.target.hours.value,
+    }
+
+    updateDb(data)
+      .then(res => {
+        context.setShowingDialog({
+          isShowing: true,
+          text: res
+        });
+      });
+  }
+
   return (
-    <form className={`${classes.form}`}>
+    <form className={`${classes.form}`} onSubmit={handleSubmit}>
       <div className={"input-group mb-3"}>
         <label className={"input-group-text"} htmlFor={"name"} key={"nameLabel"}>Ваші ініціали</label>
         <input type={"text"} id={"name"} key={"name"} className={"form-control"} required/>
       </div>
-      <select value={context.optionIndex} className="form-select" onChange={handleChangeIndex} key={"select"}>
+      <select id={"street"} value={context.optionIndex} className={`form-select ${classes.select}`} onChange={handleChangeIndex}
+              key={"street"}>
         {context.dbData.map((item, index) =>
           <option value={index} key={`option${index}`}>{item.location}</option>
         )}

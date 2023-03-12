@@ -4,10 +4,15 @@ body {
   'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
   sans-serif;
   position: relative;
-  min-height: 100vh;
+  height: 100vh;
 }
 
 #root {
   position: relative;
   min-height: 100vh;
+}
+
+::selection {
+  background-color: var(--btn-color);
+  color: white;
 }

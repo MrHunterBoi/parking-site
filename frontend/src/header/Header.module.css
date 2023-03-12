@@ -41,7 +41,7 @@
 }
 
 .btnOrange {
-    color: var(--btn-color);
+    color: black;
     border: 2px solid var(--btn-color);
 }
 

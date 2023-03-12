@@ -2,3 +2,38 @@
     padding-bottom: 15vh;
     margin: 0;
 }
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5vh;
+    padding: 1vh 3vw 5vh;
+
+    padding-bottom: 20vh;
+}
+
+.slider {
+    max-width: 50vw;
+}
+
+.article {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 5vh;
+    justify-content: space-between;
+}
+
+.article span {
+    max-width: 60%;
+}
+
+.article img {
+    max-width: 30%;
+    object-fit: contain;
+}
+
+.toLeft {
+    flex-direction: row-reverse;
+}
