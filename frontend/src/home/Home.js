@@ -6,7 +6,6 @@ import img2 from '../static/img/Herrscher_of_the_Void_Chibi.webp';
 import img3 from '../static/img/Herrscher_of_Sentience_Chibi.webp';
 import {Link} from "react-router-dom";
 
-
 function Home() {
   const dummyText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla egestas leo magna, in condimentum ' +
     'enim mattis eu. Mauris pretium est at dignissim porttitor. Curabitur interdum neque ut dui consequat, et commodo ' +

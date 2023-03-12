@@ -7,11 +7,17 @@ import img2 from '../static/img/Herrscher_of_Sentience_Chibi.webp'
 import img3 from '../static/img/Herrscher_of_the_Void_Chibi.webp'
 import img4 from '../static/img/Herrscher_of_Truth_Chibi.webp'
 import classes from "./Slider.module.css";
+import {useState} from "react";
 
 function Slider() {
+  const [carouselLoaded, setCarouselLoaded] = useState(false);
+
+  function loadCarousel () {
+    setCarouselLoaded(true);
+  }
 
   return (
-    <OwlCarousel className='owl-theme'
+    <OwlCarousel onLoad={loadCarousel} className='owl-theme'
                  loop
                  center
                  items={3}
