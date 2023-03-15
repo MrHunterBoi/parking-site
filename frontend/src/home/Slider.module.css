@@ -1,10 +1,4 @@
 .item img {
-    position: relative;
-}
-
-.item p {
-    position: absolute;
-    top: 0;
-    left: 30%;
-    font-size: 40px;
+    object-fit: cover;
+    height: 40vh;
 }

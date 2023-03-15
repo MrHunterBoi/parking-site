@@ -2,10 +2,11 @@ import 'jquery-ui-dist/jquery-ui'
 import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
-import img1 from '../static/img/Herrscher_of_Flamescion_Chibi.webp'
-import img2 from '../static/img/Herrscher_of_Sentience_Chibi.webp'
-import img3 from '../static/img/Herrscher_of_the_Void_Chibi.webp'
-import img4 from '../static/img/Herrscher_of_Truth_Chibi.webp'
+import img1 from '../static/img/slider1.jpg'
+import img2 from '../static/img/slider2.jpg'
+import img3 from '../static/img/slider3.jpg'
+import img4 from '../static/img/slider4.jpg'
+import img5 from '../static/img/slider5.jpg'
 import classes from "./Slider.module.css";
 import {useState} from "react";
 
@@ -28,19 +29,18 @@ function Slider() {
                  smartSpeed={450}>
       <div className={classes.item}>
         <img src={img1} alt={'img1'}/>
-        <p>Shut the fuck up</p>
       </div>
       <div className={classes.item}>
         <img src={img2} alt={'img2'}/>
-        <p>No one cares</p>
       </div>
       <div className={classes.item}>
         <img src={img3} alt={'img3'}/>
-        <p>Nobody asked</p>
       </div>
       <div className={classes.item}>
         <img src={img4} alt={'img4'}/>
-        <p>Fucking retard</p>
+      </div>
+      <div className={classes.item}>
+        <img src={img5} alt={'img5'}/>
       </div>
     </OwlCarousel>
   )
