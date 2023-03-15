@@ -73,16 +73,16 @@ function Form() {
       <select id={"street"} value={context.optionIndex} className={`form-select ${classes.select}`} onChange={handleChangeIndex}
               key={"street"}>
         {context.dbData.map((item, index) =>
-          <option value={index} key={`option${index}`}>{item.location}</option>
+          <option value={index} key={`${index}`}>{item.location}</option>
         )}
       </select>
       <div className={classes.radios}>
         {context.dbData[context.optionIndex].places.map((item, index) =>
-          <div>
+          <div key={item.number+'div'}>
             <input disabled={handleDisabledRadio(item.expiresBooking)} onClick={handleRadio}
                    className={`form-check-input btn-check ${classes.radio}`} type="radio" name="slot"
-                   key={`radio${index}`} id={item.number} required/>
-            <label htmlFor={item.number} key={`radioLabel${index}`}
+                   key={item.number} id={item.number} required/>
+            <label htmlFor={item.number} key={item.number+'label'}
                    className={`px-2 py-1 rounded-2 ${classes.btnOrange} ${classes.radio} 
                    ${handleDisabledRadio(item.expiresBooking) ? classes.btnGray : ''}`}>{item.number}</label>
           </div>

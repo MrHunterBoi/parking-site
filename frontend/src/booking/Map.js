@@ -40,6 +40,7 @@ function Map() {
             <MarkerF
               position={{lat: item.lat, lng: item.lng}}
               onClick={handleMarkerClick}
+              key={item.location}
             />
           )}
         </GoogleMap>
