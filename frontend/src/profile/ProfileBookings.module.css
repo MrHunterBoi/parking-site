@@ -1,0 +1,15 @@
+.bookingsContainer {
+    margin-bottom: 100px;
+}
+
+.bookingsContainer h2 {
+    margin-bottom: 8vh;
+    text-align: center;
+}
+
+.bookingsContainer section {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    box-sizing: border-box;
+}

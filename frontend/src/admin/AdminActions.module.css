@@ -1,0 +1,56 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+}
+
+.container button {
+    background-color: transparent;
+}
+
+.btnBlue {
+    color: black;
+    border: 2px solid var(--btn-color-blue);
+}
+
+.btnBlue:hover {
+    color: white;
+    background-color: var(--btn-color-blue);
+}
+
+.btn {
+    transition-duration: .2s;
+}
+
+.dateForm {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dateForm input {
+    height: 70%;
+    min-width: 50%;
+    max-width: 60%;
+    text-align: center;
+}
+
+.dateForm button {
+    min-width: 20%;
+    max-width: 30%;
+}
+
+.clientForm {
+    display: flex;
+    justify-content: space-between;
+}
+
+.clientForm div {
+    min-width: 50%;
+    max-width: 60%;
+}
+
+.clientForm button {
+    min-width: 20%;
+    max-width: 30%;
+}

@@ -1,0 +1,66 @@
+.outside {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,.5);
+    z-index: 1;
+}
+
+.dialog {
+    z-index: 2;
+}
+
+.dialogText {
+    text-align: center;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid var(--btn-color);
+    border-top: none;
+}
+
+.title {
+    display: flex;
+    justify-content: right;
+    background-color: #e3e3e3;
+    border: 2px solid var(--btn-color);
+    border-bottom: none;
+    border-radius: 7px 7px 0 0;
+}
+
+.title button {
+    background-color: transparent;
+    border: none;
+    transition-duration: .2s;
+    border-bottom-left-radius: 5px;
+}
+
+.title button:hover {
+    color: white;
+    background-color: var(--btn-color);
+}
+
+.buttonsLine {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    border: 2px solid var(--btn-color);
+    border-radius: 0 0 7px 7px;
+    border-top: none;
+    padding: 10px 0;
+}
+
+.button {
+    border-radius: 5px;
+    background-color: transparent;
+    border: none;
+    transition-duration: .2s;
+}
+
+.button:hover {
+    color: white;
+    background-color: var(--btn-color);
+}

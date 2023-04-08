@@ -12,6 +12,11 @@ body {
   min-height: 100vh;
 }
 
+:root {
+    --btn-color: #e79919;
+    --btn-color-blue: #4871e3
+}
+
 ::selection {
   background-color: var(--btn-color);
   color: white;

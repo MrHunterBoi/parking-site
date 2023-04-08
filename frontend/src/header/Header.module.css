@@ -1,7 +1,3 @@
-:root {
-    --btn-color: #e79919;
-}
-
 .header {
     padding: 2vh 3vw;
     display: flex;
@@ -19,10 +15,15 @@
 }
 
 .nav {
-    width: 30%;
+    width: 50%;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-column-gap: 10%;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 5%;
+    grid-row-gap: 5%;
+}
+
+.nav button {
+    background-color: transparent;
 }
 
 .link {

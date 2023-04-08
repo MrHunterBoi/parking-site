@@ -1,0 +1,19 @@
+.main {
+    display: flex;
+    justify-content: space-between;
+    padding: 5vh 10vw;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 8vh;
+    align-items: center;
+}
+
+.info article {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+

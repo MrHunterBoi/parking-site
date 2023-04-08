@@ -1,0 +1,20 @@
+.loginContainer {
+    display: flex;
+    flex-direction: column;
+    min-width: 30vw;
+}
+
+.loginContainer h2 {
+    text-align: center;
+    margin-bottom: 5vh;
+}
+
+.loginContainer form div input {
+    text-align: right;
+}
+
+.error {
+    color: red;
+    font-weight: bold;
+    text-align: center;
+}

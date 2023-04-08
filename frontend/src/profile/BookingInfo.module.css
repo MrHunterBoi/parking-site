@@ -1,0 +1,18 @@
+.bookingBox {
+    padding: 2vw 2.5vw;
+    border: 2px solid var(--btn-color);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.btnRed {
+    color: black;
+    border: 2px solid #e55555;
+}
+
+.btnRed:hover {
+    cursor: pointer;
+    color: white;
+    background-color: #e55555;
+}

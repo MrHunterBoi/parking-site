@@ -2,14 +2,16 @@ import Form from "./Form";
 import Map from "./Map"
 import classes from "./Booking.module.css"
 import {useState, createContext, useEffect} from "react";
-import {getDb} from "../apis/API";
+import {getDb, parseLocalProfile} from "../apis/API";
 import DialogBox from "./DialogBox";
+import {useNavigate} from "react-router-dom";
 
 let contextDb = createContext();
 
 function Booking() {
+  const profileData = parseLocalProfile();
+  const navigator = useNavigate();
   const [dbData, setDbData] = useState();
-
   const [center, setCenter] = useState({
     lat: 49.840240462918584,
     lng: 24.03336064237039,
@@ -30,12 +32,13 @@ function Booking() {
   }
 
   useEffect(() => {
+    if (!profileData) navigator('/login');
     setDb();
   }, [])
 
   return (
     <contextDb.Provider
-      value={{dbData, setDbData, center, setCenter, optionIndex, setOptionIndex, showingDialog, setShowingDialog}}>
+      value={{dbData, setDbData, center, setCenter, optionIndex, setOptionIndex, showingDialog, setShowingDialog, profileData}}>
       <main className={classes.main}>
         {showingDialog.isShowing ? <DialogBox/> : <></>}
         <h1>Бронювання паркувального місця</h1>

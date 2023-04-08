@@ -5,6 +5,7 @@ import {updateDb} from "../apis/API";
 
 function Form() {
   const context = useContext(contextDb);
+  const profileData = context.profileData;
 
   useEffect(() => {
     context.setCenter({
@@ -49,10 +50,12 @@ function Form() {
     }
 
     const data = {
+      id: profileData._id,
       name: e.target.name.value,
       location: e.target.street.options[e.target.street.selectedIndex].text,
       slot: checked.id,
       duration: e.target.hours.value,
+      email: profileData.email
     }
 
     updateDb(data)
@@ -70,14 +73,14 @@ function Form() {
         <label className={"input-group-text"} htmlFor={"name"} key={"nameLabel"}>Ваші ініціали</label>
         <input type={"text"} id={"name"} key={"name"} className={"form-control"} required/>
       </div>
-      <select id={"street"} value={context.optionIndex} className={`form-select ${classes.select}`} onChange={handleChangeIndex}
+      <select id={"street"} value={context.optionIndex} className={`form-select`} onChange={handleChangeIndex}
               key={"street"}>
         {context.dbData.map((item, index) =>
           <option value={index} key={`${index}`}>{item.location}</option>
         )}
       </select>
       <div className={classes.radios}>
-        {context.dbData[context.optionIndex].places.map((item, index) =>
+        {context.dbData[context.optionIndex].places.map((item) =>
           <div key={item.number+'div'}>
             <input disabled={handleDisabledRadio(item.expiresBooking)} onClick={handleRadio}
                    className={`form-check-input btn-check ${classes.radio}`} type="radio" name="slot"

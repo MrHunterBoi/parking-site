@@ -20,8 +20,40 @@ app.get("/api/", (req, res) => {
   db.getDb(req, res);
 });
 
-app.put("/api/", (req, res) => {
+app.post("/api/", (req, res) => {
   db.updateDb(req, res);
+});
+
+app.put("/api/slot", (req, res) => {
+  db.deleteSlot(req, res);
+});
+
+app.post("/api/slot", (req, res) => {
+  db.createSlot(req, res);
+});
+
+app.put("/api/client", (req, res) => {
+  db.changeClient(req, res);
+});
+
+app.put("/api/client/date", (req, res) => {
+  db.changeClientDate(req, res);
+});
+
+app.get("/api/profiles", (req, res) => {
+  db.getProfiles(req, res);
+});
+
+app.post("/api/profiles", (req, res) => {
+  db.createProfile(req, res);
+});
+
+app.put("/api/profiles", (req, res) => {
+  db.editProfile(req, res);
+});
+
+app.delete("/api/profiles", (req, res) => {
+  db.deleteProfileBooking(req, res);
 });
 
 app.listen(PORT, () =>

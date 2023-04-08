@@ -1,0 +1,17 @@
+.article {
+    min-width: 30vw;
+}
+
+.article div input {
+    text-align: right;
+}
+
+.article h2 {
+    margin-bottom: 8vh;
+    text-align: center;
+}
+
+.buttons {
+    display: flex;
+    gap: 2vw;
+}

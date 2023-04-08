@@ -1,0 +1,16 @@
+.inline {
+   display: flex;
+   margin: 0;
+}
+
+.free {
+    color: green;
+    margin-left: 5px;
+    font-weight: bold;
+}
+
+.booked {
+    color: red;
+    margin-left: 5px;
+    font-weight: bold;
+}

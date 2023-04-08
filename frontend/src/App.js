@@ -4,6 +4,9 @@ import Home from "./home/Home";
 import Header from "./header/Header";
 import Footer from "./footer/Footer";
 import Booking from "./booking/Booking";
+import LoginPage from "./login/LoginPage";
+import ProfilePage from "./profile/ProfilePage";
+import AdminPage from "./admin/AdminPage";
 
 function App() {
   return (
@@ -12,6 +15,9 @@ function App() {
       <Routes>
         <Route path={'/'} element={<Home/>}/>
         <Route path={'/booking'} element={<Booking/>}/>
+        <Route path={'/login'} element={<LoginPage/>}/>
+        <Route path={'/profile'} element={<ProfilePage/>}/>
+        <Route path={'/admin'} element={<AdminPage/>}/>
       </Routes>
       <Footer/>
     </BrowserRouter>
