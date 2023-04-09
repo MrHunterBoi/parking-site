@@ -7,6 +7,7 @@ import Booking from "./booking/Booking";
 import LoginPage from "./login/LoginPage";
 import ProfilePage from "./profile/ProfilePage";
 import AdminPage from "./admin/AdminPage";
+import AboutMe from "./about/AboutMe";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path={'/login'} element={<LoginPage/>}/>
         <Route path={'/profile'} element={<ProfilePage/>}/>
         <Route path={'/admin'} element={<AdminPage/>}/>
+        <Route path={'/about'} element={<AboutMe/>}/>
       </Routes>
       <Footer/>
     </BrowserRouter>
